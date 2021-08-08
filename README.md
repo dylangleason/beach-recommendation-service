@@ -16,7 +16,7 @@ As a user, I would like to:
 
 -   See a scrollable list of beaches, sorted by rating.
 -   Click on each beach to view more details, where I should be able to see a picture, aggregate rating and comments about the beach.
--   Rate and comment on a beach.
+-   Rate (using a 5-star system) and comment on a beach.
 
 # Technical Requirements
 
@@ -88,7 +88,7 @@ The following query parameters are supported for our API:
         "description": "Located in the city of Cannon Beach, OR, this beaach is home to the famous Haystack Rocks and spans 4 miles.",
         "location": {
           "latitude": 45.889167,
-          "longitude": -123.960833,
+          "longitude": -123.960833
         },
         "average_rating": 4.5,
         "total_ratings": 100,
@@ -106,12 +106,12 @@ The following query parameters are supported for our API:
         "description": "Rockaway Beach is a popular beach destination. Tillamook State Forest is a popular attraction here.",
         "location": {
           "latitude": 45.613333, 
-          "longitude": -123.942778,
+          "longitude": -123.942778
         },
         "average_rating": 4.0,
         "total_ratings": 125,
         "image_url": "https://some.image.host/another_image_id"
-      }
+      },
       "links": {
         "self": "/beaches/0942ed0e-b395-40ad-8fc8-aaa6fbd10d27"
       }
@@ -158,15 +158,15 @@ The following query parameters are supported for querying including the related 
       "description": "Rockaway Beach is a popular beach destination. Tillamook State Forest is a popular attraction here.",
       "location": {
         "latitude": 45.613333, 
-        "longitude": -123.942778,
+        "longitude": -123.942778
       },
       "average_rating": 4.0,
       "total_ratings": 125,
       "image_url": "https://some.image.host/another_image_id"
-    }
+    },
     "links": {
       "self": "/beaches/0942ed0e-b395-40ad-8fc8-aaa6fbd10d27"
-    }
+    },
     "relationships": {
       "ratings": {
         "links": {
@@ -201,6 +201,7 @@ _Note_: if requesting the related `ratings` resource, the response payload would
 -   **201:** Created the rating resource
 -   **400:** The request syntax was malformed
 -   **409:** The request could not be completed, likely because a beach relationship was not specified
+-   **422:** The request cannot be processed, for example if the rating goes beyond our 1-5 star rating system.
 
 #### Example Request Body
 
