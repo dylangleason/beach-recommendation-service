@@ -8,6 +8,7 @@
         1.  [View a List of Beaches](#view-a-list-of-beaches)
         2.  [View a Beach](#view-a-beach)
         3.  [Leave a Beach Rating](#leave-a-beach-rating)
+    4.  [Deployment](#deployment)
 3.  [Possible Improvements](#possible-improvements)
 
 # User Stories
