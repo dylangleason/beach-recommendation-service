@@ -84,14 +84,14 @@ The following query parameters are supported for our API:
       "id": "f5182ab3-69ad-4292-afc8-162f775043a4",
       "type": "beaches",
       "attributes": {
-        "name": "Cannon Beach"
-        "description": "Located in the city of Cannon Beach, OR, this beaach is home to the famous Haystack Rocks and spans 4 miles."
+        "name": "Cannon Beach",
+        "description": "Located in the city of Cannon Beach, OR, this beaach is home to the famous Haystack Rocks and spans 4 miles.",
         "location": {
           "latitude": 45.889167,
           "longitude": -123.960833,
         },
-        "average_rating": 4.5
-        "total_ratings": 100
+        "average_rating": 4.5,
+        "total_ratings": 100,
         "image_url": "https://some.image.host/some_image_id"
       },
       "links": {
@@ -102,8 +102,8 @@ The following query parameters are supported for our API:
       "id": "0942ed0e-b395-40ad-8fc8-aaa6fbd10d27",
       "type": "beaches",
       "attributes": {
-        "name": "Rockaway Beach"
-        "description": "Rockaway Beach is a popular beach destination. Tillamook State Forest is a popular attraction here."
+        "name": "Rockaway Beach",
+        "description": "Rockaway Beach is a popular beach destination. Tillamook State Forest is a popular attraction here.",
         "location": {
           "latitude": 45.613333, 
           "longitude": -123.942778,
@@ -154,8 +154,8 @@ The following query parameters are supported for querying including the related 
     "id": "0942ed0e-b395-40ad-8fc8-aaa6fbd10d27",
     "type": "beaches",
     "attributes": {
-      "name": "Rockaway Beach"
-      "description": "Rockaway Beach is a popular beach destination. Tillamook State Forest is a popular attraction here."
+      "name": "Rockaway Beach",
+      "description": "Rockaway Beach is a popular beach destination. Tillamook State Forest is a popular attraction here.",
       "location": {
         "latitude": 45.613333, 
         "longitude": -123.942778,
@@ -210,7 +210,7 @@ _Note_: if requesting the related `ratings` resource, the response payload would
     "type": "ratings",
     "attributes": {
       "user_id": "003561e4-7cf8-4711-b571-4b18b250e9ae",
-      "rating": 4.5
+      "rating": 4.5,
       "comment": "I really liked this beach a lot"
     },
     "relationships": {
@@ -234,7 +234,7 @@ _Note_: if requesting the related `ratings` resource, the response payload would
     "type": "ratings",
     "attributes": {
       "user_id": "003561e4-7cf8-4711-b571-4b18b250e9ae",
-      "rating": 4.5
+      "rating": 4.5,
       "comment": "I really liked this beach a lot"
     },
     "relationships": {
