@@ -36,13 +36,13 @@ In our domain model, the beach and ratings represent a single bounded context. T
 Our web service will be implemented in Python and uses a basic layered architecture. The four components of our layered architecture are:
 
 1.  _Transport layer_: modules for handling web API requests, per the data contract laid out in our API specification. For our project we will use the [Flask](https://github.com/pallets/flask) micro-framework in Python to handle the machinery of servicing web requests.
-2.  _Business layer_: modules that are responsible for executing business logic based on the type of API request we're handling, e.g. for viewing and sorting listings, or creating new recommendations associated with a a particular beach. For our project, the business logic will be written in Python.
+2.  _Business layer_: modules that are responsible for executing business logic based on the type of API request we're handling, e.g. for viewing and sorting listings, or creating new user recommendations for a particular beach. For our project, the business logic will be written in Python.
 3.  _Persistence layer_: modules that wrap access to and interaction with the database layer. For our project, we'll use a standard ORM, such as [SQLAlchemy](https://github.com/sqlalchemy/sqlalchemy).
 4.  _Database layer_: Where the data is stored to and retrieved from. For this project we will use a relational database PostgreSQL.
 
 We are opting to use Python for this project because it has great third-party library support, the tooling is mature and the language itself is easy to learn and highly expressive. Dynamic typing will help us get the project off the ground quickly, but type annotations and static analysis tools like [mypy](https://github.com/python/mypy) can be integrated to help improve the quality of the codebase as new devs start contributing.
 
-For the database, we chose to go with PostgreSQL due to familiarity and backend programmer's strengths in relational database design versus a non-relational storage model. However, there is a tradeoff: non-relational storage models like a document-based system might provide us with more flexibility for an immature project like this, especially if the domain model is subject to change. More upfront design work will be required to ensure extensibility, performance and maintainability with a relational data store.
+For the database, we chose to go with PostgreSQL due to familiarity and backend programmer's strengths in relational database design versus a non-relational storage model. Data integrity can also be more easily enforced at the storage level. However, there is a tradeoff: non-relational storage models like a document store might provide us with more flexibility for an immature project like this, especially if the domain model is subject to change. More upfront design work will be required to ensure extensibility, performance and maintainability with a relational data store.
 
 ## REST API
 
@@ -251,9 +251,16 @@ _Note_: if requesting the related `ratings` resource, the response payload would
 }
 ```
 
+## Deployment
+
+Our web service will be hosted on Amazon Web Services (AWS). Specifically, We will deploy our application using AWS Elastic Container Service (ECS). As such, we will need to define our service via a `Dockerfile` and build images of the service via our build and deployment pipeline, where we'd host them on Elastic Container Registry (ECR).
+
+Builds and deployments will be configured managed via a continuous integration server, such as Jenkins. CI/CD pipelines is a topic that is beyond the scope of this document, but there is much more to consider on this topic.
+
+
 # Possible Improvements
 
 -   For the API, it would be nice to support different sorting criteria, as well as things like filtering and sparse fields (i.e., allowing the API client to define only the attributes they want to include for a resource).
--   For the underlying Data Model, it might be better to use a generalized "Listing" abstraction that would allow us to capture information on any geographic-based attraction to which users can rate.
--   For the Persistence and Database layers, a Document based object model and non-relational data store, respectively, might simplify and make for a more scalable architecture, especially when aggregating data. I chose PostgreSQL due to my familiarity with the technology.
+-   For the underlying Data Model, it might be better to use a generalized "Listing" abstraction that would allow us to capture information on any geographic-based attraction to which users can add their rating.
+-   For the Persistence and Database layers, a Document based object model and document data store, respectively, might simplify and make for a more flexible architecture if the domain model changes frequently. I chose PostgreSQL due to my familiarity with the technology.
 
