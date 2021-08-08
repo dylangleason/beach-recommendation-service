@@ -42,7 +42,7 @@ Our web service will be implemented in Python and uses a basic layered architect
 
 We are opting to use Python for this project because it has great third-party library support, the tooling is mature and the language itself is easy to learn and highly expressive. Dynamic typing will help us get the project off the ground quickly, but type annotations and static analysis tools like `mypy` can be integrated as the codebase matures.
 
-For the database, I chose to go with PostgreSQL due to familiarity and my own strengths in relational database design versus a non-relational storage model. However, there is a tradeoff: non-relational storage models like a document-based system might provide us with more flexibility for an immature project like this, especially if the domain model is subject to change. More upfront design work will be required to ensure extensibility, performance and maintainability with a relational data store.
+For the database, we chose to go with PostgreSQL due to familiarity and backend programmer's strengths in relational database design versus a non-relational storage model. However, there is a tradeoff: non-relational storage models like a document-based system might provide us with more flexibility for an immature project like this, especially if the domain model is subject to change. More upfront design work will be required to ensure extensibility, performance and maintainability with a relational data store.
 
 ## REST API
 
