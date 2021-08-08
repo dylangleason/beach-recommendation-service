@@ -35,12 +35,12 @@ In our domain model, the beach and ratings represent a single bounded context. T
 
 Our web service will be implemented in Python and uses a basic layered architecture. The four components of our layered architecture are:
 
-1.  _Transport layer_: modules for handling web API requests, per the data contract laid out in our API specification. For our project we will use the Flask micro-framework in Python to handle the machinery of servicing web requests.
+1.  _Transport layer_: modules for handling web API requests, per the data contract laid out in our API specification. For our project we will use the [Flask](https://github.com/pallets/flask) micro-framework in Python to handle the machinery of servicing web requests.
 2.  _Business layer_: modules that are responsible for executing business logic based on the type of API request we're handling, e.g. for viewing and sorting listings, or creating new recommendations associated with a a particular beach. For our project, the business logic will be written in Python.
-3.  _Persistence layer_: modules that wrap access to and interaction with the database layer. For our project, we'll use a standard ORM, such as SQLAlchemy.
+3.  _Persistence layer_: modules that wrap access to and interaction with the database layer. For our project, we'll use a standard ORM, such as [SQLAlchemy](https://github.com/sqlalchemy/sqlalchemy).
 4.  _Database layer_: Where the data is stored to and retrieved from. For this project we will use a relational database PostgreSQL.
 
-We are opting to use Python for this project because it has great third-party library support, the tooling is mature and the language itself is easy to learn and highly expressive. Dynamic typing will help us get the project off the ground quickly, but type annotations and static analysis tools like `mypy` can be integrated as the codebase matures.
+We are opting to use Python for this project because it has great third-party library support, the tooling is mature and the language itself is easy to learn and highly expressive. Dynamic typing will help us get the project off the ground quickly, but type annotations and static analysis tools like [mypy](https://github.com/python/mypy) can be integrated to help improve the quality of the codebase as new devs start contributing.
 
 For the database, we chose to go with PostgreSQL due to familiarity and backend programmer's strengths in relational database design versus a non-relational storage model. However, there is a tradeoff: non-relational storage models like a document-based system might provide us with more flexibility for an immature project like this, especially if the domain model is subject to change. More upfront design work will be required to ensure extensibility, performance and maintainability with a relational data store.
 
