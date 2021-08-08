@@ -176,13 +176,14 @@ The following query parameters are supported for querying including the related 
     }
   },
   "included": [
-    "id": "20d4cc0d-ccbb-43fb-9a2a-4f40df78c64d",
-    "type": "ratings",
-    "attributes": {
-      "user_id": "003561e4-7cf8-4711-b571-4b18b250e9ae",
-      "rating": 4.0,
-      "comment": "I really liked this beach a lot. It was a bit crowded, though. Get there early in the day, if possible."
-
+    {
+      "id": "20d4cc0d-ccbb-43fb-9a2a-4f40df78c64d",
+      "type": "ratings",
+      "attributes": {
+        "user_id": "003561e4-7cf8-4711-b571-4b18b250e9ae",
+        "rating": 4.0,
+        "comment": "I really liked this beach a lot. It was a bit crowded, though. Get there early in the day, if possible."
+      }
     },
     ...
   ]
